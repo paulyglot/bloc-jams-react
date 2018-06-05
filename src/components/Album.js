@@ -5,13 +5,29 @@ class Album extends Component {
 	constructor(props) {
 		super(props);
 
-		const album = albumData.find( album => {
-       return album.slug === this.props.match.params.slug
-     });
+			const album = albumData.find( album => {
+   				return album.slug === this.props.match.params.slug
+     	});
  
      this.state = {
-       album: album
+       album: album,
+       currentSong: album.songs[0],
      };
+	}
+
+	handleSong(song) {
+		this.audioElement.src = song.audioSrc;
+		this.setState({ currentSong: song });
+	}
+
+	songTime(inSeconds) {
+		const minutes = Math.floor(inSeconds / 60);
+		const seconds = Math.floor(inSeconds - minutes * 60);
+		if (isNaN(inSeconds)) {
+			return "";
+		} else {
+			return minutes + ":" + (seconds : seconds);
+		}
 	}
 
 	render() {
@@ -32,6 +48,14 @@ class Album extends Component {
 	             <col id="song-duration-column" />
 	           </colgroup>  
 	           <tbody>
+	           {
+	           		this.state.album.songs.map( (song, index, album) =>
+	           			<tr className="song" key={index}>
+	           				<td className="song-title">{song.title}</td>
+	           				<td>{this.songTime(song.duration)}</td>
+	           			</tr>
+	           		)
+	           }
 	           </tbody>
          </table>
 			</section>
