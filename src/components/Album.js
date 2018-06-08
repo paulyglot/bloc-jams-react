@@ -43,10 +43,10 @@ class Album extends Component {
 	           		)
 	           }
 	           </tbody>
-         </table>
+         	  </table>
 			</section>
-  );
- }
+  		);
+ 	}
 }
 
 export default Album;
