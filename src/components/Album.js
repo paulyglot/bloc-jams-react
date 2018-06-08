@@ -16,7 +16,7 @@ class Album extends Component {
        isPlaying: false
      };
 
-     this.audioElement = document.createELement('audio');
+     this.audioElement = document.createElement('audio');
      this.audioElement = album.songs[0].audioSrc;
 	}
 
@@ -25,17 +25,17 @@ class Album extends Component {
      this.setState({ isPlaying: true });
    }
 
-   pause() {
+    pause() {
      this.audioElement.pause();
      this.setState({ isPlaying: false });
    }   
 
-   setSong(song) {
+    setSong(song) {
      this.audioElement.src = song.audioSrc;
      this.setState({ currentSong: song });
    }
 
-   handleSongClick(song) {
+    handleSongClick(song) {
      const isSameSong = this.state.currentSong === song;
      if (this.state.isPlaying && isSameSong) {
        this.pause();
@@ -45,6 +45,34 @@ class Album extends Component {
      }
    }
 
+   //When I hover over a song, it displays a "play" button in place of the song number.
+
+   //The currently playing song displays a "pause" button in place of the song number.
+
+   //A paused song displays a "play" button in place of the song number.
+
+    buttonController(song, index) {
+	    const playButton = <span className="ion-play"></span>;
+	    const pauseButton = <span className="ion-pause"></span>;
+	    const isSameSong = this.state.currentSong === song;    
+
+	    if (this.state.isPlaying === false && this.state.hovered === song)  {
+	      return playButton;
+	    } else if (this.state.isPlaying === true && this.state.hovered === song && isSameSong) {
+	      return pauseButton;
+	    } else {
+	      return (index +1);
+	    }
+	  }     
+
+    mouseHoverOn(song) {
+    	this.setState({hovered: song});
+    }
+
+    mouseHoverOff(song) {
+    	this.setState({hovered: null});
+    }
+    
 	render() {
 		return (
 			<section className="album">
@@ -63,25 +91,17 @@ class Album extends Component {
 	             <col id="song-duration-column" />
 	           </colgroup>  
 	           <tbody>
-	           		{this.state.album.songs.map( (song, index, album) =>
-	           			<tr key={index}>
-	           				<td>{index +1}</td>
+	           		{this.state.album.songs.map( (song,index) =>
+	           			<tr key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={() => this.mouseHoverOn(song)} onMouseLeave={() => this.mouseHoverOff(song)}>
+	           				<td>{this.buttonController(song, index)} </td>
 	           				<td>{song.title}</td>
 	           				<td>{song.duration}</td>
 	           			</tr>
 	           		)}
 	           </tbody>
-<<<<<<< HEAD
          	</table>
 		</section>
   	);
+   }
  }
-=======
-         	  </table>
-			</section>
-  		);
- 	}
->>>>>>> assignment-blocJamsAlbum
-}
-
 export default Album;
