@@ -71,10 +71,17 @@ class Album extends Component {
 	           			</tr>
 	           		)}
 	           </tbody>
+<<<<<<< HEAD
          	</table>
 		</section>
   	);
  }
+=======
+         	  </table>
+			</section>
+  		);
+ 	}
+>>>>>>> assignment-blocJamsAlbum
 }
 
 export default Album;
