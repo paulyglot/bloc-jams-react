@@ -21,6 +21,7 @@ class Album extends Component {
 
     this.audioElement = document.createElement('audio');
     this.audioElement.src = album.songs[0].audioSrc;
+    this.formatTime = this.formatTime.bind(this);
   }
 
   buttonController(song, index) {
@@ -157,7 +158,7 @@ class Album extends Component {
                 <tr key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={() => this.mouseHoverOn(song)} onMouseLeave={() => this.mouseHoverOff(song)}>
                   <td> {this.buttonController(song, index)} </td>
                   <td>{song.title}</td>
-                  <td>{song.duration}</td>
+                  <td>{this.formatTime(song.duration)}</td>
                 </tr>
               )
             }
