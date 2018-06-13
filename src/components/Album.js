@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import albumData from './../data/albums';
 import PlayerBar from './PlayerBar';
-
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 
 class Album extends Component {
   constructor(props) {
@@ -63,19 +65,19 @@ class Album extends Component {
    }
 
   formatTime(timeSeconds) {
-    if (isNaN(timeSeconds)) {
-      return '-:--;'
-    }
-    const minutes = Math.floor(timeSeconds/60);
+    const minutes = Math.floor(timeSeconds / 60);
     const seconds = Math.floor(timeSeconds - minutes * 60);
-    if (seconds < 10) {
-      return `${minutes}:0${seconds}`
+    if (isNaN(timeSeconds)) {
+      return "-:--";
+    } else {
+      return minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
     }
-   }
+  }
 
-  handleNextClick() {
+  handleNextClick(song) {
     const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
-    const newIndex = Math.max(0, currentIndex + 1);
+    const albumEnd = this.state.album.songs.length - 1;
+    const newIndex = Math.min(albumEnd, currentIndex + 1);
     const newSong = this.state.album.songs[newIndex];
     this.setSong(newSong);
     this.play();
@@ -147,36 +149,44 @@ class Album extends Component {
             <div id="release-info">{this.state.album.releaseInfo}</div>
           </div>
         </section>
-        <table id="song-list">
-          <colgroup>
-            <col id="song-number-column"/>
-            <col id="song-title-column"/>
-            <col id="song-duration-column"/> 
-          </colgroup>
-          <tbody>
-            {this.state.album.songs.map ((song, index) => 
-                <tr key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={() => this.mouseHoverOn(song)} onMouseLeave={() => this.mouseHoverOff(song)}>
-                  <td> {this.buttonController(song, index)} </td>
-                  <td>{song.title}</td>
-                  <td>{this.formatTime(song.duration)}</td>
-                </tr>
-              )
-            }
-          </tbody>
-        </table>
-        <PlayerBar
-           isPlaying={this.state.isPlaying}
-           currentSong={this.state.currentSong}
-           currentTime={this.audioElement.currentTime}
-           songVolume={this.state.songVolume}
-           duration={this.audioElement.duration}
-           formatTime={(time) => this.formatTime(time)}
-           handleSongClick={() => this.handleSongClick(this.state.currentSong)}
-           handlePrevClick={() => this.handlePrevClick()}
-           handleNextClick={() => this.handleNextClick()}
-           handleTimeChange={(e) => this.handleTimeChange(e)}
-           handleVolumeChange={(e) => this.handleVolumeChange(e)}
-         />
+        <Grid>
+          <Row>
+            <Col xs={12} md={6} className="song-list-container">
+              <table id="song-list" className="col-md-12">
+                <colgroup>
+                  <col id="song-number-column"/>
+                  <col id="song-title-column"/>
+                  <col id="song-duration-column"/> 
+                </colgroup>
+                <tbody>
+                  {this.state.album.songs.map ((song, index, album) => 
+                      <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={() => this.mouseHoverOn(song)} onMouseLeave={() => this.mouseHoverOff(song)}>
+                        <td>{this.buttonController(song, index)} </td>
+                        <td>{song.title}</td>
+                        <td>{this.formatTime}</td>
+                      </tr>
+                    )
+                  }
+                </tbody>
+              </table>
+            </Col>
+            <Col xs={10} md={4}>
+              <PlayerBar
+                 isPlaying={this.state.isPlaying}
+                 currentSong={this.state.currentSong}
+                 currentTime={this.audioElement.currentTime}
+                 songVolume={this.state.songVolume}
+                 duration={this.audioElement.duration}
+                 formatTime={(t) => this.formatTime(t)}
+                 handleSongClick={() => this.handleSongClick(this.state.currentSong)}
+                 handlePrevClick={() => this.handlePrevClick()}
+                 handleNextClick={() => this.handleNextClick()}
+                 handleTimeChange={(e) => this.handleTimeChange(e)}
+                 handleVolumeChange={(e) => this.handleVolumeChange(e)}
+               />
+              </Col>
+            </Row>
+          </Grid>
       </section>
     );
   }

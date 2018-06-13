@@ -1,38 +1,191 @@
-.App {
+/*~~~~~~~~~~~~~~~~~~~~~~GLOBAL~~~~~~~~~~~~~~~~~~~~~~~*/
+body {
+  background: #ffffff;
+}
+
+nav {
+  background: #ffffff;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+nav > a {
+  padding: 8px;
+}
+
+h1,h2,h3,h4 {
+  font-family: 'Poiret One', cursive;
+}
+
+p {
+  font-size: 15px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~LANDING~~~~~~~~~~~~~~~~~~~~~~~*/
+.landing {
+  position: relative;
+  width: 100%;
+}
+
+.landing:hover .overlay {
+  opacity: .7;
+}
+
+.landing-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .9s ease;
+  background-color: #5ebaac;
+}
+
+.text {
+  color: white;
+  font-size: 40px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.site-header {
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Poiret One', cursive;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.site-footer {
+  color: #5ebaac;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~LIBRARY~~~~~~~~~~~~~~~~~~~~~~~*/
+.library {
+  position: relative;
+  width: 100%;
+}
+
+.library:hover .overlay {
+  opacity: .7;
+}
+
+.libraryImg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.libraryOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .9s ease;
+  background-color: #5ebaac;
+}
+
+.libraryText {
   color: white;
+  font-size: 40px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
 }
 
-.App-title {
-  font-size: 1.5em;
+.lib-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 40px;
 }
 
-.App-intro {
-  font-size: large;
+.libraryDescriptions {
+  color: black;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~ALBUM~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#album-cover-art {
+  height: 300px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+#buttons > button {
+  background: white;
+  text-align: center;
 }
 
-/*Styles Album Component
-.song-number:hover {
-  display: none;
+#buttons > button:hover {
+  background: #5ebaac;
 }
 
-.ion-song-play:hover {
+#previous, #play-pause, #next {
+  width: 30%;
+}
+
+#volume-control, #time-control {
+  padding-top: 20px;
+}
+
+.album {
+  text-align: center;
+}
+
+.current-time, .total-time, #time-control > input, .low-volume, .high-volume, #volume-control > input {
+  width: 33%;
   display: inline;
 }
-*/
+
+.current-time, .total-time, .low-volume, .high-volume {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.player-bar {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.songData {
+  padding-right: 0px;
+}
+
+.song-list-container {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.song {
+  border-bottom: 5px solid #fff;
+}
+
+.song:hover {
+  background: #5ebaac;
+}
+
+
+
+
+
+
+
