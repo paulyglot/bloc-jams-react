@@ -12,7 +12,7 @@ const Landing = () => (
       </div>
     </div>
   </section>
-  <footer className="foot-message">Choose the song you want, when you want it</footer>
+  <footer className="foot-message">The music you want, when you need it</footer>
 </section>
   );
 

@@ -14,12 +14,14 @@ nav > a {
   padding: 8px;
 }
 
-h1,h2,h3,h4 {
+h1,h2,h3,h4,h5,h6 {
   font-family: 'Poiret One', cursive;
+  font-weight: bold;
 }
 
 p {
   font-size: 15px;
+  font-weight: bold;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~LANDING~~~~~~~~~~~~~~~~~~~~~~~*/
 .landing {
@@ -32,21 +34,26 @@ p {
 }
 
 .landing-img {
-  display: block;
   width: 100%;
-  height: 500px;
+  height: 450px;
+  top: 0px;
+  position: relative; 
+  padding-right: 100px;
+  padding-left: 100px; 
+  padding-top: 20px;
   position: relative;
+  display: block;
 }
 
 .overlay {
+  display: block;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
+  padding-top: 40px;  
+  height: 430px;
+  width: 50%;
   opacity: 0;
+  top: 20px;
+  left: 25%;
   transition: .9s ease;
   background-color: #06777c;
 }
@@ -65,13 +72,14 @@ p {
   text-align: center;
   font-size: 45px;
   position: relative;
+  padding-top: 10px;
 }
 
 .site-footer {
   color: #06777c;
   font-family: 'Poiret One', cursive;
   font-size: 20px;
-  font: bold;
+  font-weight: bold;
 }
 
 
@@ -81,7 +89,8 @@ p {
   font-family: 'Poiret One', cursive;
   font-size: 18px;
   position: relative;
-  padding: 30px
+  padding: 20px;
+  font-weight: bold;
 }
 /*~~~~~~~~~~~~~~~~~~~~~~LIBRARY~~~~~~~~~~~~~~~~~~~~~~~*/
 .library {
@@ -97,20 +106,24 @@ p {
   display: block;
   margin: auto;
   width: 100%;
-  height: 500px;
+  height: 450px;
   top: 0px;
-  position: relative;  
+  position: relative; 
+  padding-right: 50px;
+  padding-left: 50px; 
+  padding-top: 20px;
 }
 
 .libraryOverlay {
   display: block;
-  position: absolute;  
-  height: 500px;
+  position: absolute;
+  padding-top: 40px;  
+  height: 430px;
   width: 50%;
   opacity: 0;
-  top: 0px;
+  top: 20px;
   left: 25%;
-  transition: .6s ease;
+  transition: .9s ease;
   background-color: #06777c;
 }
 
@@ -128,73 +141,96 @@ p {
 /*~~~~~~~~~~~~~~~~~~~~~~ALBUM~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #album-cover-art {
-  height: 300px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  height: 350px;
+  padding-left: 120px;
+  padding-bottom: 20px;
+  padding-right: 10px;
+  padding-top: 50px;
   align-items: center;
 }
 
-#buttons > button {
-  background: white;
+.album-details {
   text-align: center;
-}
-
-#buttons > button:hover {
-  background: #06777c;
-}
-
-#previous, #play-pause, #next {
-  width: 30%;
-  left: 55px;
+  font-weight: 500;
+  color: black;
+  font-family: 'Poiret One', cursive;
+  font-size: 18px;
+  left: 50px;
   position: relative;
+  line-height: 20%;
+  padding-top: -400px;
 }
 
-#volume-control, #time-control {
-  padding-top: 20px;
-  width: 150%;
-}
-
-.album {
-  text-align: center;
-}
-
-.current-time, .total-time, #time-control > input, .low-volume, .high-volume, #volume-control > input {
-  width: 33%;
-  display: inline;
-}
-
-.current-time, .total-time, .low-volume, .high-volume {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.player-bar {
-  text-align: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
-.songData {
-  padding-right: 0px;
-}
+/*~~~~~~~~~~~~~~~~~~~~~~ ALBUM TRACK INFO~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .song-list-container {
   text-align: center;
-  padding-top: 30px;
-  position: relative;
-  left: 60px;
+  padding-top: 60px;
+  padding-left: 70px;
+  padding-right: 50px;
+  position: sticky;
+  left: 100px;
+  line-height: 280%;  
 }
 
 .song {
-  border-bottom: 5px solid #fff;
+  color: #06777c;
+  font-family: 'Poiret One', cursive;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid #06777c;
 }
 
 .song:hover {
   background: #06777c;
+  color: white;
+  opacity: .7;
+  transition: .9s ease;
 }
 
+/*~~~~~~~~~~~~~~~~~~~~~~ALBUM PLAYER BAR~~~~~~~~~~~~~~~~~~~~~~~*/
 
+.player-bar {
+  text-align: center;
+  padding-top: 160px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 50px;
+  font-family: 'Poiret One', cursive;
+  font-weight: bold;
+}
 
+/*~~~~~~~~~~~~~~~~~~~~~~PLAYER BAR BUTTONS~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#buttons > button {
+  background: white;
+  text-align: center;
+  top: -30px;
+}
+
+#buttons > button:hover {
+  background: #06777c;
+  opacity: .7;
+  transition: .9s ease;
+}
+
+#previous, #play-pause, #next {
+  width: 32%;
+  position: relative;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~PLAYER BAR TIME/VOLUME~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.current-time, .total-time, #volume-control > .seek-bar {
+  display: inline;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 60%;
+}
+
+#time-control > .seek-bar {
+  width: 40%;
+}
 
 
 

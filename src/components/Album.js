@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import albumData from './../data/albums';
 import PlayerBar from './PlayerBar';
-import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 
@@ -141,17 +140,16 @@ class Album extends Component {
   render() {
     return (
       <section className="album">
-        <section id="album-info">
-          <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title}/>
-          <div className="album-details">
-            <h1 id="album-title">{this.state.album.title}</h1>
-            <h2 className="artist">{this.state.album.artist}</h2>
-            <div id="release-info">{this.state.album.releaseInfo}</div>
-          </div>
-        </section>
-        <Grid>
           <Row>
-            <Col xs={12} md={6} className="song-list-container">
+            <section id="album-info">
+              <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title}/>
+              <div className="album-details">
+                <h4 className="artist">Artist: {this.state.album.artist}</h4>
+                <h5 id="album-title">Album: {this.state.album.title}</h5>
+                <h6 id="release-info">{this.state.album.releaseInfo}</h6>
+              </div>
+            </section>
+            <Col xs={15} md={4} className="song-list-container">
               <table id="song-list" className="col-md-12">
                 <colgroup>
                   <col id="song-number-column"/>
@@ -161,7 +159,7 @@ class Album extends Component {
                 <tbody>
                   {this.state.album.songs.map ((song, index) => 
                       <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={() => this.mouseHoverOn(song)} onMouseLeave={() => this.mouseHoverOff(song)}>
-                        <td>{this.buttonController(song, index)} </td>
+                        <td>{this.buttonController(song, index)}</td>
                         <td>{song.title}</td>
                         <td>{this.formatTime(song.duration)}</td>
                       </tr>
@@ -170,7 +168,7 @@ class Album extends Component {
                 </tbody>
               </table>
             </Col>
-            <Col xs={10} md={4}>
+            <Col xs={10} md={3}>
               <PlayerBar
                  isPlaying={this.state.isPlaying}
                  currentSong={this.state.currentSong}
@@ -185,11 +183,23 @@ class Album extends Component {
                  handleVolumeChange={(e) => this.handleVolumeChange(e)}
                />
               </Col>
-            </Row>
-          </Grid>
+          </Row>
       </section>
     );
   }
 }
 
 export default Album;
+
+
+
+
+
+
+
+
+
+
+
+
+
