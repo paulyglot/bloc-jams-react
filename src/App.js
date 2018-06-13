@@ -14,7 +14,7 @@ class App extends Component {
           <nav>
              <h1 className="site-header">Bloc Jams</h1>
              <Link to='/' className="site-footer">Home</Link>
-             <Link to='/library' className="site-footer">Listen</Link>
+             <Link to='/library' className="site-footer">Library</Link>
            </nav>
         </header> 
         <main>

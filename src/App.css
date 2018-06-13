@@ -28,13 +28,14 @@ p {
 }
 
 .landing:hover .overlay {
-  opacity: .7;
+  opacity: .9;
 }
 
 .landing-img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 500px;
+  position: relative;
 }
 
 .overlay {
@@ -47,13 +48,12 @@ p {
   width: 100%;
   opacity: 0;
   transition: .9s ease;
-  background-color: #5ebaac;
+  background-color: #06777c;
 }
 
 .text {
   color: white;
-  font-size: 40px;
-  position: absolute;
+  position: relative;
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -63,12 +63,25 @@ p {
 
 .site-header {
   text-align: center;
-  font-size: 50px;
-  font-family: 'Poiret One', cursive;
+  font-size: 45px;
+  position: relative;
 }
 
 .site-footer {
-  color: #5ebaac;
+  color: #06777c;
+  font-family: 'Poiret One', cursive;
+  font-size: 20px;
+  font: bold;
+}
+
+
+.foot-message {
+  text-align: center;
+  color: #06777c;
+  font-family: 'Poiret One', cursive;
+  font-size: 18px;
+  position: relative;
+  padding: 30px
 }
 /*~~~~~~~~~~~~~~~~~~~~~~LIBRARY~~~~~~~~~~~~~~~~~~~~~~~*/
 .library {
@@ -76,50 +89,42 @@ p {
   width: 100%;
 }
 
-.library:hover .overlay {
-  opacity: .7;
+.library:hover .libraryOverlay {
+  opacity: .9;
 }
 
 .libraryImg {
   display: block;
+  margin: auto;
   width: 100%;
-  height: auto;
+  height: 500px;
+  top: 0px;
+  position: relative;  
 }
 
 .libraryOverlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
+  display: block;
+  position: absolute;  
+  height: 500px;
+  width: 50%;
   opacity: 0;
-  transition: .9s ease;
-  background-color: #5ebaac;
+  top: 0px;
+  left: 25%;
+  transition: .6s ease;
+  background-color: #06777c;
 }
 
 .libraryText {
   color: white;
   font-size: 40px;
-  position: absolute;
-  top: 30%;
+  position: relative;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
 }
 
-.lib-img {
-  display: block;
-  width: 100%;
-  height: auto;
-  padding: 40px;
-}
-
-.libraryDescriptions {
-  color: black;
-}
 /*~~~~~~~~~~~~~~~~~~~~~~ALBUM~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #album-cover-art {
@@ -135,15 +140,18 @@ p {
 }
 
 #buttons > button:hover {
-  background: #5ebaac;
+  background: #06777c;
 }
 
 #previous, #play-pause, #next {
   width: 30%;
+  left: 55px;
+  position: relative;
 }
 
 #volume-control, #time-control {
   padding-top: 20px;
+  width: 150%;
 }
 
 .album {
@@ -173,6 +181,8 @@ p {
 .song-list-container {
   text-align: center;
   padding-top: 30px;
+  position: relative;
+  left: 60px;
 }
 
 .song {
@@ -180,7 +190,7 @@ p {
 }
 
 .song:hover {
-  background: #5ebaac;
+  background: #06777c;
 }
 
 

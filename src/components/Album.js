@@ -159,11 +159,11 @@ class Album extends Component {
                   <col id="song-duration-column"/> 
                 </colgroup>
                 <tbody>
-                  {this.state.album.songs.map ((song, index, album) => 
+                  {this.state.album.songs.map ((song, index) => 
                       <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={() => this.mouseHoverOn(song)} onMouseLeave={() => this.mouseHoverOff(song)}>
                         <td>{this.buttonController(song, index)} </td>
                         <td>{song.title}</td>
-                        <td>{this.formatTime}</td>
+                        <td>{this.formatTime(song.duration)}</td>
                       </tr>
                     )
                   }

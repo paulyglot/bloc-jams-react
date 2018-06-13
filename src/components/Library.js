@@ -11,28 +11,33 @@ class Library extends Component {
 	}
 	render() {
     return (
-      <section className="library">
-        <Row>
-          {this.state.albums.map( (album, index) =>
-              <Col sm={12} md={6} key={index}>
-              <Link to={`/album/${album.slug}`} key={index} >
-                <img className="libraryImg" src={album.albumCover} alt={album.title} />
-                <div className="libraryOverlay">
-                  <div className="libraryText">        
-                    <h3 className="libraryDescriptions">{album.title}</h3>
-                    <h4 className="libraryDescriptions">{album.artist}</h4>
-                    <p>{album.songs.length} songs</p>
+      <section>
+        <section className="library">
+          <Row>
+            {this.state.albums.map( (album, index) =>
+                <Col sm={12} md={6} key={index}>
+                <Link to={`/album/${album.slug}`} key={index} >
+                  <img className="libraryImg" src={album.albumCover} alt={album.title} />
+                  <div className="libraryOverlay">
+                    <div className="libraryText">        
+                      <h3 className="libraryDescriptions">{album.title}</h3>
+                      <h4 className="libraryDescriptions">{album.artist}</h4>
+                      <p>{album.songs.length} songs</p>
+                    </div>
                   </div>
-                </div>
-              </Link>
-              </Col>
-            )
-          }
-        </Row>
-      </section>
+                </Link>
+                </Col>
+              )
+            }
+          </Row>
+        </section>
+      <footer className="foot-message">Listen to your music on the go</footer>
+    </section>
     );
   }
 }
 
 export default Library;
 
+
+  
