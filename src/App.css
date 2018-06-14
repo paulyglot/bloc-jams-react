@@ -221,14 +221,20 @@ p {
 
 /*~~~~~~~~~~~~~~~~~~~~~~PLAYER BAR TIME/VOLUME~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.current-time, .total-time, #volume-control > .seek-bar {
+.current-time, .total-time{
   display: inline;
   padding-left: 10px;
   padding-right: 10px;
-  width: 60%;
+  width: 40%;
 }
 
 #time-control > .seek-bar {
+  display: inline;
+  width: 40%;
+}
+
+#volume-control > .seek-bar{
+  display: inline;
   width: 40%;
 }
 
