@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "merge": "^1.2.1",
+    "merge": "^2.1.1",
     "react": "^16.4.0",
     "react-bootstrap": "^0.32.1",
     "react-dev-utils": "^7.0.1",
